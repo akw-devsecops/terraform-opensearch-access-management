@@ -48,17 +48,17 @@ resource "opensearch_role" "admin_full_access" {
 resource "opensearch_roles_mapping" "admin_full_access" {
   description = "Map admin users to admin_full_access role"
   role_name   = "admin_full_access"
-  users       = concat(["admin-test"], tolist(var.admin_users))
+  users       = tolist(var.admin_users)
 }
 
 resource "opensearch_roles_mapping" "all_access" {
   description = "Map admin users to all_access role"
   role_name   = "all_access"
-  users       = concat(["admin-test"], tolist(var.admin_users))
+  users       = tolist(var.admin_users)
 }
 
 resource "opensearch_roles_mapping" "security_manager" {
   description = "Map admin users to security_manager role"
   role_name   = "security_manager"
-  users       = concat(["admin-test"], tolist(var.admin_users))
+  users       = tolist(var.admin_users)
 }
