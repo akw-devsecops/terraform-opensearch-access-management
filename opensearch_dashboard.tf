@@ -21,7 +21,7 @@ resource "opensearch_roles_mapping" "mapping_this" {
   description = "Mapping AWS IAM backend role to ES role: ${each.key}"
 
   role_name     = opensearch_role.this[each.key].role_name
-  backend_roles = ["arn:aws:iam::${var.account_id}:role/${each.key}-role"]
+  backend_roles = each.value.backend_role_names
 }
 
 
