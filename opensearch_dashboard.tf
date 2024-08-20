@@ -62,3 +62,13 @@ resource "opensearch_roles_mapping" "security_manager" {
   role_name   = "security_manager"
   users       = tolist(var.admin_users)
 }
+
+resource "opensearch_roles_mapping" "read_only" {
+  description = "Map users to read_only role"
+  role_name   = "readall"
+  users       = tolist(var.users)
+}
+
+resource "opensearch_audit_config" "audit_config" {
+  enabled = var.enable_audit_logs
+}
